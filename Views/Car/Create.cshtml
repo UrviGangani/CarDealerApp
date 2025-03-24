@@ -1,18 +1,43 @@
 @model Car
 
-<h2>Add New Car</h2>
-<form asp-action="Create" method="post">
-    <label>Make:</label>
-    <input asp-for="Make" required />
-    
-    <label>Model:</label>
-    <input asp-for="Model" required />
-    
-    <label>Year:</label>
-    <input asp-for="Year" type="number" />
-    
-    <label>Price:</label>
-    <input asp-for="Price" type="number" />
+@{
+    ViewData["Title"] = "Add New Car";
+}
 
-    <button type="submit">Add Car</button>
-</form>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Add a New Car</h2>
+    
+    <div class="card shadow-lg p-4">
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label class="form-label">Make:</label>
+                <input asp-for="Make" class="form-control" placeholder="Enter Car Make" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Model:</label>
+                <input asp-for="Model" class="form-control" placeholder="Enter Car Model" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Year:</label>
+                <input asp-for="Year" type="number" class="form-control" placeholder="Enter Year" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Price (£):</label>
+                <input asp-for="Price" type="number" step="0.01" class="form-control" placeholder="Enter Price" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Image URL:</label>
+                <input asp-for="ImageUrl" type="url" class="form-control" placeholder="Paste Image URL" required />
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary w-100">Add Car</button>
+                <a asp-action="Index" class="btn btn-secondary w-100 mt-2">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
