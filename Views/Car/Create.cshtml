@@ -1,0 +1,18 @@
+@model Car
+
+<h2>Add New Car</h2>
+<form asp-action="Create" method="post">
+    <label>Make:</label>
+    <input asp-for="Make" required />
+    
+    <label>Model:</label>
+    <input asp-for="Model" required />
+    
+    <label>Year:</label>
+    <input asp-for="Year" type="number" />
+    
+    <label>Price:</label>
+    <input asp-for="Price" type="number" />
+
+    <button type="submit">Add Car</button>
+</form>

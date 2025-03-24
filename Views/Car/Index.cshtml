@@ -1,0 +1,22 @@
+@model IEnumerable<Car>
+
+<h2>Car Listings</h2>
+<a href="/Car/Create">Add New Car</a>
+
+<table>
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Price</th>
+    </tr>
+    @foreach (var car in Model)
+    {
+        <tr>
+            <td>@car.Make</td>
+            <td>@car.Model</td>
+            <td>@car.Year</td>
+            <td>@car.Price</td>
+        </tr>
+    }
+</table>
