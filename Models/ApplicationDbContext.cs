@@ -1,9 +1,14 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-
-public class ApplicationDbContext : DbContext
+using CarDealerApp.Models;
+namespace CarDealerApp.Data
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options) { }
 
-    public DbSet<Car> Cars { get; set; }
-    public DbSet<Inquiry> Inquiries { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Inquiry> Inquiries { get; set; }
+    }
 }

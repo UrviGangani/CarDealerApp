@@ -24,6 +24,19 @@
                         <li class="nav-item"><a class="nav-link text-dark" asp-controller="Car" asp-action="Index">Car Listings</a></li>
                         <li class="nav-item"><a class="nav-link text-dark" asp-controller="Car" asp-action="Create">Add New Car</a></li>
                         <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                        @if (User?.Identity?.IsAuthenticated == true)
+                         {
+                            <li class="nav-item"><a class="nav-link" href="/Account/Logout">Logout</a></li>
+                            @if (User?.Identity?.IsAuthenticated == true)
+                            {
+                                <span>@User.Identity.Name</span>
+                            }
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Register">Register</a></li>
+                        }
                     </ul>
                 </div>
             </div>

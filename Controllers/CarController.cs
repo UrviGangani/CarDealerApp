@@ -1,5 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using CarDealerApp.Models; 
+using CarDealerApp.Data;   
+using CarDealerApp.Models.ViewModel; 
+
 
 public class CarController : Controller
 {
