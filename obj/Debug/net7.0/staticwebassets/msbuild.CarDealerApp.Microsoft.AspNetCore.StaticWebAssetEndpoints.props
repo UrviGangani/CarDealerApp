@@ -4,13 +4,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\CarDealerApp.3v6hkmncbx.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3v6hkmncbx"},{"Name":"integrity","Value":"sha256-AaekMrrTsCP6SXLkbhi33gUdhiUGkN07z3Ij1R86qnA="},{"Name":"label","Value":"_content/CarDealerApp/CarDealerApp.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1130"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022AaekMrrTsCP6SXLkbhi33gUdhiUGkN07z3Ij1R86qnA=\u0022"},{"Name":"Last-Modified","Value":"Tue, 25 Mar 2025 14:03:07 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1130"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022AaekMrrTsCP6SXLkbhi33gUdhiUGkN07z3Ij1R86qnA=\u0022"},{"Name":"Last-Modified","Value":"Tue, 25 Mar 2025 15:50:17 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/CarDealerApp/CarDealerApp.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\CarDealerApp.3v6hkmncbx.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-AaekMrrTsCP6SXLkbhi33gUdhiUGkN07z3Ij1R86qnA="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1130"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022AaekMrrTsCP6SXLkbhi33gUdhiUGkN07z3Ij1R86qnA=\u0022"},{"Name":"Last-Modified","Value":"Tue, 25 Mar 2025 14:03:07 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1130"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022AaekMrrTsCP6SXLkbhi33gUdhiUGkN07z3Ij1R86qnA=\u0022"},{"Name":"Last-Modified","Value":"Tue, 25 Mar 2025 15:50:17 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/CarDealerApp/css/site.b9sayid5wm.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>

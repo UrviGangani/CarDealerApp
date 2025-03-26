@@ -18,7 +18,6 @@ var connectionString = configuration.GetConnectionString("DefaultConnection")
 
 var jwtSettings = configuration.GetSection("JwtSettings");
 var key = Encoding.UTF8.GetBytes(configuration["JwtSettings:Secret"]);
-Console.WriteLine($"JWT Secret: {configuration["JwtSettings:Secret"]}");
 
 
 // Database Connection
@@ -43,7 +42,7 @@ builder.Services.AddAuthentication(options =>
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("yT9f@kL!xA4VqW2mZ7sN#GdXpJ6uC8bE0R5tL!vM3pQ")),
+        IssuerSigningKey = new SymmetricSecurityKey(key),
         ValidateIssuer = false,
         ValidateAudience = false,
         ValidateLifetime = true
@@ -51,17 +50,34 @@ builder.Services.AddAuthentication(options =>
 })
 .AddCookie(); // Cookie authentication for MVC
 
+builder.Services.AddDistributedMemoryCache();  // Required for session
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session timeout
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 builder.Services.AddHttpClient();
 builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
 
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 

@@ -7,6 +7,8 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json.Nodes;
+using Newtonsoft.Json.Linq;
 
 namespace CarDealerApp.Controllers
 {
@@ -39,26 +41,53 @@ namespace CarDealerApp.Controllers
 
             var response = await client.PostAsync("http://localhost:5103/api/Account/login", content);
 
+            Console.WriteLine(response.IsSuccessStatusCode);
             if (response.IsSuccessStatusCode)
             {
+                Console.WriteLine("response.IsSuccessStatusCode: ");
                 var responseBody = await response.Content.ReadAsStringAsync();
-                var tokenResponse = JsonConvert.DeserializeObject<dynamic>(responseBody);
-                string token = tokenResponse.Token;
+                var loginResponse = JsonConvert.DeserializeObject<LoginResponse>(responseBody);
+                if (loginResponse != null && loginResponse.User != null)
+                {
+                    var user = loginResponse.User;
+                    var token = loginResponse.Token; // Token is an object
 
-                // Store token in session or cookie
-                HttpContext.Session.SetString("AuthToken", token);
-                return RedirectToAction("Index", "Home");
+                    Console.WriteLine($"Login Successful! Welcome {user.FirstName} {user.LastName}");
+                    Console.WriteLine($"User ID: {user.Id} | Email: {user.Email} | IsAdmin: {user.IsAdmin}");
+                    Console.WriteLine($"Token Valid From: {token.ValidFrom} | Valid To: {token.ValidTo}");
+
+                    // Store user details in session
+                    HttpContext.Session.SetString("UserId", user.Id);
+                    HttpContext.Session.SetString("FirstName", user.FirstName);
+                    HttpContext.Session.SetString("LastName", user.LastName);
+                    HttpContext.Session.SetString("Email", user.Email);
+                    HttpContext.Session.SetString("IsAdmin", user.IsAdmin.ToString());
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid login response.");
+                    return View("Login");
+                }
             }
+                else
+                {
+                    Console.WriteLine("Login failed: " + response.StatusCode);
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return View("Login");
+                }
 
-            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-            return View(model);
+            // Console.WriteLine("Invalid login attempt.");
+            // ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            // return View(model);
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            HttpContext.Session.Remove("AuthToken");
+            HttpContext.Session.Clear();
             return RedirectToAction("Login", "Auth");
         }
 

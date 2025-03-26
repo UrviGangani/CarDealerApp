@@ -74,14 +74,30 @@ namespace CarDealerApp.Controllers.Api
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Id),
-                    new Claim(ClaimTypes.Email, user.Email ?? "Unknown")
+                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim("FirstName", user.FirstName),
+                    new Claim("LastName", user.LastName),
+                    new Claim("IsAdmin", user.IsAdmin.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            return Ok(new { Token = tokenHandler.WriteToken(token) });
+            // Return token + user details
+            return Ok(new
+            {
+                token = token,
+                user = new
+                {
+                    id = user.Id,
+                    firstName = user.FirstName,
+                    lastName = user.LastName,
+                    email = user.Email,
+                    isAdmin = user.IsAdmin
+                }
+            });
+
         }
     }
 }

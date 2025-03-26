@@ -1,4 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    var userId = HttpContextAccessor.HttpContext.Session.GetString("UserId");
+    var firstName = HttpContextAccessor.HttpContext.Session.GetString("FirstName");
+    var lastName = HttpContextAccessor.HttpContext.Session.GetString("LastName");
+    var email = HttpContextAccessor.HttpContext.Session.GetString("Email");
+    var isAdmin = HttpContextAccessor.HttpContext.Session.GetString("IsAdmin");
+    bool isLoggedIn = !string.IsNullOrEmpty(userId);
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -21,16 +31,24 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Car" asp-action="Index">Car Listings</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Car" asp-action="Create">Add New Car</a></li>
                         <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
-                        @if (User?.Identity?.IsAuthenticated == true)
-                         {
-                            <li class="nav-item"><a class="nav-link" href="/Account/Logout">Logout</a></li>
-                            @if (User?.Identity?.IsAuthenticated == true)
+                         @if (isAdmin == "True")  // Show admin panel link if the user is an admin
                             {
-                                <span>@User.Identity.Name</span>
+                                <li class="nav-item"><a class="nav-link text-dark" asp-controller="Car" asp-action="Create">Add New Car</a></li>
                             }
+                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Car" asp-action="Index">Car Listings</a></li>                                               
+                    </ul>                    
+                </div>
+                <div class=" collapse d-sm-inline-flex justify-content-between text-right">
+                    <ul class="navbar-nav flex-grow-1">
+                        @if (isLoggedIn)
+                        {
+                            <li class="nav-item">
+                                <span class="nav-link">Welcome, @firstName @lastName</span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Auth" asp-action="Logout" method="post">Logout</a>
+                            </li> 
                         }
                         else
                         {
