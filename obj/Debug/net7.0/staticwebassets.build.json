@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rQJpFdcjyf8kQ2KI/xo3atDOJi7E25iENn7IlnvY/II=",
+  "Hash": "91dtiNU+XA0W13+fETu/wXvwALQmZAGSi5jZedcAacA=",
   "Source": "CarDealerApp",
   "BasePath": "_content/CarDealerApp",
   "Mode": "Default",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b9sayid5wm",
-      "Integrity": "j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=",
+      "Fingerprint": "1dnbouvb2a",
+      "Integrity": "BUuoOhLMMXZKwyZkbTiHrb3GNkwExzVwzoTpa7W+Tlo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xtxxf3hu2r",
-      "Integrity": "hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=",
+      "Fingerprint": "vcfa2c4wj8",
+      "Integrity": "P54xQ71QcUt3ZRNoihBAEDfCh8IT/niLE0DuwvIgtIg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
@@ -1548,7 +1548,7 @@
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css",
+      "Route": "css/site.1dnbouvb2a.css",
       "AssetFile": "D:\\Urvi\\Bincom Learning\\CarDealerApp\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1558,7 +1558,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "667"
+          "Value": "1059"
         },
         {
           "Name": "Content-Type",
@@ -1566,11 +1566,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "\"BUuoOhLMMXZKwyZkbTiHrb3GNkwExzVwzoTpa7W+Tlo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Mar 2025 18:15:40 GMT"
+          "Value": "Fri, 28 Mar 2025 10:12:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1580,7 +1580,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "1dnbouvb2a"
         },
         {
           "Name": "label",
@@ -1588,7 +1588,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-BUuoOhLMMXZKwyZkbTiHrb3GNkwExzVwzoTpa7W+Tlo="
         }
       ]
     },
@@ -1603,7 +1603,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "667"
+          "Value": "1059"
         },
         {
           "Name": "Content-Type",
@@ -1611,11 +1611,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "\"BUuoOhLMMXZKwyZkbTiHrb3GNkwExzVwzoTpa7W+Tlo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Mar 2025 18:15:40 GMT"
+          "Value": "Fri, 28 Mar 2025 10:12:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1625,7 +1625,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-BUuoOhLMMXZKwyZkbTiHrb3GNkwExzVwzoTpa7W+Tlo="
         }
       ]
     },
@@ -1722,7 +1722,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "231"
+          "Value": "631"
         },
         {
           "Name": "Content-Type",
@@ -1730,11 +1730,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=\""
+          "Value": "\"P54xQ71QcUt3ZRNoihBAEDfCh8IT/niLE0DuwvIgtIg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Mar 2025 18:15:40 GMT"
+          "Value": "Fri, 28 Mar 2025 10:15:19 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1744,12 +1744,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="
+          "Value": "sha256-P54xQ71QcUt3ZRNoihBAEDfCh8IT/niLE0DuwvIgtIg="
         }
       ]
     },
     {
-      "Route": "js/site.xtxxf3hu2r.js",
+      "Route": "js/site.vcfa2c4wj8.js",
       "AssetFile": "D:\\Urvi\\Bincom Learning\\CarDealerApp\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1759,7 +1759,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "231"
+          "Value": "631"
         },
         {
           "Name": "Content-Type",
@@ -1767,11 +1767,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=\""
+          "Value": "\"P54xQ71QcUt3ZRNoihBAEDfCh8IT/niLE0DuwvIgtIg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Mar 2025 18:15:40 GMT"
+          "Value": "Fri, 28 Mar 2025 10:15:19 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1781,7 +1781,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xtxxf3hu2r"
+          "Value": "vcfa2c4wj8"
         },
         {
           "Name": "label",
@@ -1789,7 +1789,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="
+          "Value": "sha256-P54xQ71QcUt3ZRNoihBAEDfCh8IT/niLE0DuwvIgtIg="
         }
       ]
     },

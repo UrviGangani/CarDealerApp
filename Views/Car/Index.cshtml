@@ -3,8 +3,20 @@
 @{
     ViewData["Title"] = "Car Listings";
 }
-
-<div class="container mt-5">
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    var isAdmin = HttpContextAccessor.HttpContext.Session.GetString("IsAdmin");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - CarDealerApp</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />    
+</head>
+<body>                    
+           <div class="container mt-5">
     <h2 class="text-center mb-4">Car Listings</h2>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -14,17 +26,64 @@
                 <div class="card h-100 shadow-sm">
                     <img src="@car.ImageUrl" class="card-img-top" alt="@car.Make @car.Model" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title">@car.Make @car.Model</h5>
-                        <p class="card-text">
-                            <strong>Year:</strong> @car.Year<br>
-                            <strong>Price:</strong> £@car.Price
-                        </p>
+                        <h3 class="card-title">@car.Make @car.Model</h3>
+                        <p class="card-text">Price: $@car.Price</p>
                     </div>
                     <div class="card-footer text-center">
                         <a href="#" class="btn btn-primary">View Details</a>
+
+                        @if (isAdmin != "True")
+                        {
+                            <button class="btn btn-info inquire-btn" data-id="@car.Id">Inquire</button>
+                            
+                            <!-- Inquiry Form (Hidden Initially) -->
+                            <div class="inquiry-form" id="inquiry-form-@car.Id">
+                                <form asp-action="Inquire" method="post">
+                                    <input type="hidden" name="CarId" value="@car.Id" />
+                                    <label for="message">Inquiry Message:</label>
+                                    <textarea name="Message" placeholder="Ask about this car..." required></textarea>
+                                    <button type="submit" class="btn btn-success">Submit Inquiry</button>
+                                    <button type="button" class="btn btn-secondary close-form" data-id="@car.Id">Cancel</button>
+                                </form>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
         }
     </div>
+
+    @if (isAdmin == "True")
+    {
+        <h3 class="mt-5">Admin Panel - Car Inquiries</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Inquiries</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var car in Model)
+                {
+                    <tr>
+                        <td>@car.Make</td>
+                        <td>@car.Model</td>
+                        <td>@car.Year</td>
+                        <td>@car.Price</td>
+                        <td>@car.InquiryCount</td>
+                        <td><a href="/Car/Details/@car.Id" class="btn btn-sm btn-outline-primary">View</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 </div>
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
